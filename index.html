@@ -60,6 +60,15 @@ select { background: var(--bg); max-width: 15em; }
 #play[aria-pressed="true"] { background: transparent; color: var(--doc); }
 .val { font: 500 14px/1 var(--font-num); min-width: 3.4em; text-align: center; font-variant-numeric: tabular-nums; }
 .spacer { flex: 1 1 0; }
+.guide-btn {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 18px; border-radius: 8px;
+  background: var(--opt); color: #1b1206; font: 700 16px/1 var(--font-body); text-decoration: none; white-space: nowrap;
+  box-shadow: 0 0 0 3px rgba(226, 163, 90, .3);
+}
+.guide-btn:hover { background: #f0b56e; }
+.guide-btn:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.guide-q { display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 50%; background: #1b1206; color: var(--opt); font-size: 13px; }
+.app.playing .bar .guide-btn { box-shadow: none; }
 .clock { display: flex; align-items: center; gap: 10px; }
 #elapsed { font: 500 20px/1 var(--font-num); font-variant-numeric: tabular-nums; letter-spacing: .02em; }
 #pace { font-size: 13px; color: var(--muted); min-width: 9.5em; }
@@ -133,6 +142,7 @@ select { background: var(--bg); max-width: 15em; }
 kbd { font: 500 11px/1 var(--font-num); border: 1px solid var(--line); border-radius: 3px; padding: 2px 4px; color: var(--ink); }
 
 @media (max-width: 720px) {
+  .guide-btn { margin-left: auto; }
   .script { --fs: 30px; }
   .bar { gap: 6px 8px; }
   .group-label { display: none; }
@@ -211,6 +221,7 @@ body.dragging .drop { border-color: var(--doc); color: var(--doc); }
       <span id="pace">시작 전 · 목표 10:00</span>
       <button id="resetClock" type="button">시간 초기화</button>
     </div>
+    <a class="guide-btn" href="guide.html" target="_blank" rel="noopener"><span class="guide-q" aria-hidden="true">?</span>설명서</a>
   </div>
 
   <div class="stage-wrap">
@@ -253,7 +264,7 @@ body.dragging .drop { border-color: var(--doc); color: var(--doc); }
       <button id="copyPrompt" type="button">프롬프트 복사</button>
       <span id="copyMsg" role="status"></span>
     </div>
-    <p style="margin-top:12px"><a href="sample.json" download>양식 예시 내려받기</a> · <a href="https://github.com/ChangwooLim/cpx-prompter#readme" target="_blank" rel="noopener">사용법·Claude Code 스킬</a></p>
+    <p style="margin-top:12px"><a href="sample.json" download>양식 예시 내려받기</a> · <a href="guide.html" target="_blank" rel="noopener">설명서 (Claude Code 쓰는 법)</a></p>
   </div>
 </div>
 

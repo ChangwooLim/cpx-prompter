@@ -4,6 +4,8 @@ CPX 영상을 찍을 때 카메라 뒤에 띄워 두고 읽는 자동 스크롤 
 
 https://changwoolim.github.io/cpx-prompter/
 
+처음 쓴다면 [설명서](https://changwoolim.github.io/cpx-prompter/guide.html)를 따라 하세요. 프롬프터 화면 오른쪽 위 **설명서** 버튼으로도 열 수 있습니다.
+
 ## 쓰는 순서
 
 1. 내 대본을 프롬프터 양식(JSON)으로 바꿉니다. 방법은 아래 셋 중 하나입니다.
@@ -22,7 +24,7 @@ https://changwoolim.github.io/cpx-prompter/
 
 ### 2. Claude Code의 `/prompter`
 
-Claude Code를 쓴다면 스킬을 한 번 설치합니다.
+터미널 없이 Claude 앱의 Code 탭에서 설치하고 쓰는 순서는 [설명서](https://changwoolim.github.io/cpx-prompter/guide.html#convert)에 있습니다. 터미널을 쓴다면 이렇게 설치합니다.
 
 ```bash
 git clone https://github.com/ChangwooLim/cpx-prompter.git
