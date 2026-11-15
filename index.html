@@ -591,12 +591,22 @@ $('pasteBtn').onclick = () => {
   addText(text, '붙여 넣은 내용');
   if (results.firstChild?.classList.contains('ok')) $('paste').value = '';
 };
+async function copyText(text) {
+  try { await navigator.clipboard.writeText(text); return; } catch {}
+  const ta = Object.assign(document.createElement('textarea'), { value: text, readOnly: true });
+  ta.style.cssText = 'position:fixed;top:0;left:0;opacity:0';
+  document.body.append(ta);
+  ta.select();
+  const ok = document.execCommand('copy');
+  ta.remove();
+  if (!ok) throw new Error('copy failed');
+}
 $('copyPrompt').onclick = async () => {
   const msg = $('copyMsg');
   try {
     const res = await fetch('./skill/prompter/prompt.md');
     if (!res.ok) throw new Error(res.status);
-    await navigator.clipboard.writeText(await res.text());
+    await copyText(await res.text());
     msg.textContent = '복사했습니다.';
   } catch { msg.textContent = '복사하지 못했습니다. "변환 프롬프트 보기"에서 직접 복사하세요.'; }
 };
