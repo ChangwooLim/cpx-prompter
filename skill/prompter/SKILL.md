@@ -12,7 +12,7 @@ Turn one CPX script into one `cpx-prompter/1` JSON file that the prompter page l
    - `.docx`: `python3 docx_text.py "<file>"`. It prints one paragraph per line, marks Word headings with `#`, and wraps italic runs in `*…*`, which usually mark acting directions.
    - `.txt` or `.md`: read the file.
    - Pasted text: use it as given. No script at all: ask for one and stop.
-2. Convert it with the format and rules in `prompt.md`. That file is the contract. Copy dialogue verbatim and never invent section times.
+2. Convert it with the format and rules in `prompt.md`. That file is the contract. Copy dialogue verbatim and never invent section times. Skip its "답하는 방식" section; steps 3 to 5 replace it.
 3. Write `<source name>.prompter.json` next to the source file, or in the current directory for pasted text. UTF-8, 2-space indent.
 4. Run `node validate.mjs "<output>"`. Fix the JSON and rerun until it prints `OK`.
 5. Reply in Korean, briefly:
