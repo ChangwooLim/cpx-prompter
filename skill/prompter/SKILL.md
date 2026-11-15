@@ -6,7 +6,7 @@ argument-hint: <대본 파일 경로, 또는 대본 붙여 넣기>
 
 # /prompter
 
-Turn one CPX script into one `cpx-prompter/1` JSON file that the prompter page loads. Files below live in this skill's base directory.
+Turn one CPX script into one `cpx-prompter/1` JSON file that the prompter page loads. Files below live in this skill's base directory. Run the commands from that directory.
 
 1. Get the script text.
    - `.docx`: `python3 docx_text.py "<file>"`. It prints one paragraph per line, marks Word headings with `#`, and wraps italic runs in `*…*`, which usually mark acting directions.
