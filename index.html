@@ -148,7 +148,8 @@ kbd { font: 500 11px/1 var(--font-num); border: 1px solid var(--line); border-ra
 .overlay { position: fixed; inset: 0; z-index: 20; background: rgba(5, 8, 10, .82); overflow-y: auto; overscroll-behavior: contain; }
 .overlay[hidden] { display: none; }
 .sheet {
-  box-sizing: border-box; width: 100%; max-width: 560px; margin: 0 auto; font-size: 14px; line-height: 1.55;
+  box-sizing: border-box; width: 100%; max-width: 560px; min-height: 100%; margin: 0 auto; font-size: 14px; line-height: 1.55;
+  background: var(--panel); border-inline: 1px solid var(--line);
   padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) 32px max(16px, env(safe-area-inset-left, 0px));
   overflow-wrap: anywhere;
 }
@@ -248,11 +249,11 @@ body.dragging .drop { border-color: var(--doc); color: var(--doc); }
     <h3>변환 방법</h3>
     <p>변환 프롬프트를 AI에 붙여 넣고 대본을 주면 이 형식의 JSON이 나옵니다.</p>
     <div class="row">
-      <a href="skill/prompter/prompt.md" target="_blank" rel="noopener">변환 프롬프트 보기</a>
+      <a href="https://github.com/ChangwooLim/cpx-prompter/blob/main/skill/prompter/prompt.md" target="_blank" rel="noopener">변환 프롬프트 보기</a>
       <button id="copyPrompt" type="button">프롬프트 복사</button>
       <span id="copyMsg" role="status"></span>
     </div>
-    <p style="margin-top:12px"><a href="sample.json" download>양식 예시 내려받기</a></p>
+    <p style="margin-top:12px"><a href="sample.json" download>양식 예시 내려받기</a> · <a href="https://github.com/ChangwooLim/cpx-prompter#readme" target="_blank" rel="noopener">사용법·Claude Code 스킬</a></p>
   </div>
 </div>
 
