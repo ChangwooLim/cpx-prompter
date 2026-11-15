@@ -22,9 +22,11 @@ https://changwoolim.github.io/cpx-prompter/
 2. AI 채팅에 붙여 넣고, 대본 Word 파일을 첨부하거나 본문을 붙여 넣습니다.
 3. AI가 준 JSON을 복사해서 "대본 불러오기" 창에 붙여 넣습니다. 앞뒤의 ```json 표시는 그대로 붙여 넣어도 됩니다.
 
-### 2. Claude Code의 `/prompter`
+### 2. Claude Code
 
-터미널 없이 Claude 앱의 Code 탭에서 설치하고 쓰는 순서는 [설명서](https://changwoolim.github.io/cpx-prompter/guide.html#convert)에 있습니다. 터미널을 쓴다면 이렇게 설치합니다.
+Claude 앱의 Code 탭에 문장 하나를 붙여 넣고 대본 파일을 끌어다 놓으면 됩니다. 설치는 없습니다. 붙여 넣을 문장과 순서는 [설명서](https://changwoolim.github.io/cpx-prompter/guide.html#convert)에 있습니다.
+
+자주 쓴다면 스킬로 설치해서 `/prompter`로 부를 수도 있습니다.
 
 ```bash
 git clone https://github.com/ChangwooLim/cpx-prompter.git

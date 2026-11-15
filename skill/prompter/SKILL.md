@@ -8,7 +8,9 @@ argument-hint: <대본 파일 경로, 또는 대본 붙여 넣기>
 
 Turn one CPX script into one `cpx-prompter/1` JSON file that the prompter page loads. Files below live in this skill's base directory. Run the commands from that directory.
 
-Script to convert: $ARGUMENTS
+If you are reading this file from GitHub rather than as an installed skill, download every file in https://raw.githubusercontent.com/ChangwooLim/cpx-prompter/main/skill/prompter/ (`SKILL.md`, `prompt.md`, `format.js`, `validate.mjs`, `docx_text.py`) with `curl` into a new temporary folder and use that folder as the base directory. Read the raw files, not a summary.
+
+Script to convert: $ARGUMENTS (when read from GitHub, the script is the file the user attached or named in the message)
 
 Most users are medical students who do not use a terminal. Never ask them to install software. When a tool below is missing, take the fallback it names.
 
