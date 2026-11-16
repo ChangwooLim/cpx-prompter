@@ -6,67 +6,112 @@
 <title>CPX 프롬프터 설명서</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@700&display=swap">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="tokens.css">
 <style>
-:root {
-  --bg: #0d1114; --panel: #151a1f; --line: #27303a; --ink: #f2efe6; --doc: #8cc3e6;
-  --pt: #d6b88d; --act: #8d9a93; --opt: #e2a35a; --muted: #9aa5ae; --bad: #f08a7a;
-  --font-body: "IBM Plex Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
-  --font-num: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
-  color-scheme: dark;
-}
+/* Hallmark · genre: editorial · macrostructure: Long Document (printed handout) · theme: custom (tokens.css, paper side)
+ * paper oklch(97% 0.012 85) · accent oklch(50% 0.17 29) red pencil · Hahmlet 700 (headings) + Pretendard (body)
+ * nav: N9 edge-aligned, sticky · footer: Ft2 inline single line · enrichment: none
+ * pre-emit critique: P4 H4 E5 S4 R5 V4
+ */
+:root { color-scheme: light; }
 * { box-sizing: border-box; }
-html { scroll-padding-top: 72px; }
-body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.75 var(--font-body); -webkit-font-smoothing: antialiased; }
-a { color: var(--doc); }
-.top { position: sticky; top: 0; z-index: 2; background: var(--panel); border-bottom: 1px solid var(--line); }
-.top-in { max-width: 760px; margin: 0 auto; padding: 10px 16px; display: flex; align-items: center; gap: 12px; }
-.top-in strong { font-size: 16px; }
-.back { margin-left: auto; display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px; border-radius: 8px; background: var(--doc); color: var(--bg); font-weight: 700; text-decoration: none; white-space: nowrap; }
-main { max-width: 760px; margin: 0 auto; padding: 24px 16px 80px; }
-h1 { font-size: 30px; line-height: 1.3; margin: 8px 0 12px; }
-h2 { font-size: 23px; line-height: 1.35; margin: 56px 0 14px; padding-top: 18px; border-top: 1px solid var(--line); }
-h3 { font-size: 18px; margin: 32px 0 10px; color: var(--doc); }
+html { scroll-padding-top: 76px; overflow-x: clip; }
+body {
+  margin: 0; overflow-x: clip; background: var(--color-paper); color: var(--color-ink);
+  font: 17px/1.75 var(--font-sans); -webkit-font-smoothing: antialiased; word-break: keep-all; overflow-wrap: anywhere;
+}
+a { color: var(--color-ink); text-decoration-color: var(--color-pencil); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+a:hover { color: var(--color-pencil); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--color-pencil); outline-offset: 3px; }
+
+.top { position: sticky; top: 0; z-index: 2; background: var(--color-paper); border-bottom: 1px solid var(--color-ink); }
+.top-in { max-width: 720px; margin: 0 auto; padding: 10px 20px; display: flex; align-items: center; gap: 12px; }
+.top-in strong { font: 700 17px/1.2 var(--font-serif); }
+.back {
+  margin-left: auto; display: inline-flex; align-items: center; min-height: 40px; padding: 0 16px; border-radius: var(--radius);
+  background: var(--color-ink); color: var(--color-paper); font-size: 15px; font-weight: 700; text-decoration: none; white-space: nowrap;
+  transition: background-color var(--dur-short) var(--ease-out);
+}
+.back:hover { background: var(--color-ink-2); color: var(--color-paper); }
+
+main { max-width: 720px; margin: 0 auto; padding: 44px 20px 56px; }
+h1 { font: 700 40px/1.25 var(--font-serif); letter-spacing: -.015em; margin: 0 0 14px; }
+.lead { font-size: 19px; color: var(--color-ink-2); max-width: 34em; }
+h2 { font: 700 28px/1.35 var(--font-serif); letter-spacing: -.01em; margin: 80px 0 16px; padding-top: 16px; border-top: 3px double var(--color-ink); }
+h2 .n { color: var(--color-pencil); }
+h3 { font-size: 20px; line-height: 1.4; font-weight: 800; margin: 48px 0 10px; }
 p { margin: 0 0 14px; }
-.lead { color: var(--muted); font-size: 18px; }
-ol, ul { padding-left: 1.4em; margin: 0 0 16px; }
-li { margin: 0 0 10px; }
-li::marker { color: var(--muted); font-family: var(--font-num); }
+ol, ul { padding-left: 1.6em; margin: 0 0 18px; }
+li { margin: 0 0 12px; padding-left: .2em; }
+ol > li::marker { font-family: var(--font-serif); font-weight: 700; color: var(--color-pencil); }
+ul > li::marker { color: var(--color-pencil); }
 b, strong { font-weight: 700; }
-.ui { display: inline-block; padding: 0 8px; border: 1px solid var(--line); border-radius: 5px; background: var(--panel); font-size: .92em; font-weight: 700; white-space: nowrap; }
-code { font-family: var(--font-num); font-size: .9em; background: var(--panel); border: 1px solid var(--line); border-radius: 5px; padding: 1px 6px; overflow-wrap: anywhere; }
-.see { display: block; margin-top: 4px; color: var(--act); font-size: 15px; }
-.see::before { content: "→ "; }
-.toc { display: grid; gap: 10px; margin: 24px 0 8px; padding: 0; list-style: none; counter-reset: s; }
-.toc li { margin: 0; }
-.toc a { display: block; padding: 14px 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); text-decoration: none; color: var(--ink); }
-.toc a span { display: block; color: var(--muted); font-size: 15px; }
-.toc b { color: var(--doc); }
-.route { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 16px 0; }
-.route div { padding: 14px 16px; border: 1px solid var(--line); border-radius: 10px; background: var(--panel); }
-.route b { display: block; margin-bottom: 4px; }
-.route p { margin: 0; color: var(--muted); font-size: 15px; }
-.copybox { margin: 12px 0 18px; border: 1px solid var(--opt); border-radius: 10px; background: var(--panel); }
-.copybox pre { margin: 0; padding: 14px 16px; white-space: pre-wrap; overflow-wrap: anywhere; font: 15px/1.6 var(--font-body); }
-.copybox .row { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; padding: 10px 16px; border-top: 1px solid var(--line); }
-button.copy { font: 700 16px/1 var(--font-body); min-height: 44px; padding: 0 18px; border: 0; border-radius: 8px; background: var(--opt); color: #1b1206; cursor: pointer; }
-button.copy:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
-.msg { color: var(--doc); font-size: 15px; }
-.note { margin: 16px 0; padding: 12px 16px; border-left: 4px solid var(--opt); background: var(--panel); border-radius: 0 8px 8px 0; }
-.note.warn { border-color: var(--bad); }
-table { width: 100%; border-collapse: collapse; margin: 8px 0 18px; font-size: 16px; }
-th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
-th { color: var(--muted); font-weight: 500; }
-dl { margin: 0; }
-dt { font-weight: 700; margin-top: 18px; }
-dd { margin: 4px 0 0; color: var(--ink); }
+.ui {
+  display: inline-block; padding: 0 7px; border: 1px solid var(--color-ink-2); border-bottom-width: 2px; border-radius: var(--radius);
+  background: var(--color-field); font-size: .9em; font-weight: 700; line-height: 1.55; white-space: nowrap;
+}
+code { font-family: var(--font-mono); font-size: .86em; background: var(--color-paper-2); border-radius: var(--radius); padding: 1px 5px; }
+.see { display: block; margin-top: 4px; color: var(--color-ink-2); font-size: 15px; }
+.see::before { content: "→ "; color: var(--color-pencil); }
+
+.toc { list-style: none; margin: 36px 0 0; padding: 0; border-top: 1px solid var(--color-ink); }
+.toc li { margin: 0; padding: 0; border-bottom: 1px solid var(--color-rule); }
+.toc a { display: block; padding: 12px 0 13px; text-decoration: none; }
+.toc b { font: 700 18px/1.45 var(--font-serif); }
+.toc a span { display: block; color: var(--color-ink-2); font-size: 15px; }
+.toc a:hover b { color: var(--color-pencil); }
+
+.route { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); margin: 18px 0 10px; border-block: 1px solid var(--color-ink); }
+.route div { padding: 14px 18px 16px 0; }
+.route div + div { padding: 14px 0 16px 18px; border-left: 1px solid var(--color-rule); }
+.route b { display: block; margin-bottom: 4px; font-size: 17px; }
+.route p { margin: 0; color: var(--color-ink-2); font-size: 15px; }
+
+.copybox { margin: 14px 0 24px; border: 1px dashed var(--color-ink-2); border-radius: var(--radius); background: var(--color-field); }
+.copybox pre { margin: 0; padding: 16px 18px; white-space: pre-wrap; overflow-wrap: anywhere; font: 15px/1.65 var(--font-sans); }
+.copybox .row { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 12px 18px; border-top: 1px dashed var(--color-rule); }
+button.copy {
+  font: 700 16px/1 var(--font-sans); min-height: 44px; padding: 0 18px; border: 0; border-radius: var(--radius);
+  background: var(--color-ink); color: var(--color-paper); cursor: pointer;
+  transition: background-color var(--dur-short) var(--ease-out);
+}
+button.copy:hover { background: var(--color-ink-2); }
+button.copy:active { transform: translateY(1px); }
+.msg { color: var(--color-ok); font-size: 15px; font-weight: 600; }
+
+.note { margin: 20px 0; padding: 14px 18px; border: 1px solid var(--color-ink); border-radius: var(--radius); }
+.note.warn { border-color: var(--color-pencil); }
+.note.warn b { color: var(--color-pencil); }
+
+table { width: 100%; border-collapse: collapse; margin: 8px 0 24px; font-size: 16px; border-top: 1px solid var(--color-ink); }
+th, td { text-align: left; padding: 9px 10px 9px 0; border-bottom: 1px solid var(--color-rule); vertical-align: top; }
+th { color: var(--color-ink-2); font-size: 14px; font-weight: 600; }
+td:first-child { white-space: nowrap; padding-right: 18px; }
+
+dl { margin: 0; border-top: 1px solid var(--color-ink); }
+dt { font-weight: 700; padding-top: 18px; }
+dt::before { content: "Q. "; font-family: var(--font-serif); color: var(--color-pencil); }
+dd { margin: 4px 0 0; padding-bottom: 18px; border-bottom: 1px solid var(--color-rule); }
+
+.foot {
+  max-width: 680px; width: calc(100% - 40px); margin: 0 auto 48px; padding-top: 14px; border-top: 1px solid var(--color-ink);
+  display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: 14px; color: var(--color-ink-2);
+}
+
 @media (max-width: 560px) {
   body { font-size: 16px; }
-  h1 { font-size: 25px; }
-  h2 { font-size: 21px; }
-  .route { grid-template-columns: 1fr; }
+  main { padding-top: 32px; }
+  h1 { font-size: 30px; }
+  h2 { font-size: 23px; margin-top: 64px; }
+  .lead { font-size: 17px; }
+  .route { grid-template-columns: minmax(0, 1fr); }
+  .route div { padding-right: 0; }
+  .route div + div { padding: 14px 0 16px; border-left: 0; border-top: 1px solid var(--color-rule); }
   .top-in strong { display: none; }
 }
+@media (prefers-reduced-motion: reduce) { .back, button.copy { transition: none; } button.copy:active { transform: none; } }
 </style>
 </head>
 <body>
@@ -82,7 +127,7 @@ dd { margin: 4px 0 0; color: var(--ink); }
   <li><a href="#faq"><b>4. 자주 묻는 질문</b><span>안 될 때, 다른 기기에서 쓸 때</span></a></li>
 </ol>
 
-<h2 id="convert">1. 대본을 프롬프터 파일로 바꾸기</h2>
+<h2 id="convert"><span class="n">1.</span> 대본을 프롬프터 파일로 바꾸기</h2>
 <p>바꾸는 방법은 두 가지입니다. 하나만 고르세요.</p>
 <div class="route">
   <div><b>방법 A. Claude Code (추천)</b><p>Claude 유료 요금제(Pro 이상)가 있으면 이 방법을 쓰세요. 문장 하나를 붙여 넣고 대본 파일을 끌어다 놓으면 끝입니다. 설치는 없고, 틀린 곳 검사까지 알아서 합니다.</p></div>
@@ -142,7 +187,7 @@ dd { margin: 4px 0 0; color: var(--ink); }
     <span class="see">"불러옴"이 보이면 끝입니다. <a href="#shoot">3. 촬영할 때 쓰는 법</a>으로 가세요.</span></li>
 </ol>
 
-<h2 id="load">2. 프롬프터에 불러오기</h2>
+<h2 id="load"><span class="n">2.</span> 프롬프터에 불러오기</h2>
 <ol>
   <li><a href="./" target="_blank" rel="noopener">프롬프터</a>를 엽니다.</li>
   <li>위쪽의 <span class="ui">대본 불러오기</span>를 누릅니다.</li>
@@ -154,7 +199,7 @@ dd { margin: 4px 0 0; color: var(--ink); }
 <div class="note warn"><b>빨간 글씨가 나오면</b> 파일에 틀린 곳이 있다는 뜻입니다. 빨간 글씨는 몇 번째 구간, 몇 번째 줄이 틀렸는지 알려 줍니다. 그 글을 복사해서 Claude Code나 채팅 AI에 붙여 넣고 "이거 고쳐줘"라고 하면 됩니다.</div>
 <p>불러온 대본은 지금 쓰는 기기의 브라우저에만 저장됩니다. 인터넷 어디에도 올라가지 않습니다. 다음에 같은 기기로 열면 그대로 남아 있습니다.</p>
 
-<h2 id="shoot">3. 촬영할 때 쓰는 법</h2>
+<h2 id="shoot"><span class="n">3.</span> 촬영할 때 쓰는 법</h2>
 <ol>
   <li>프롬프터를 띄운 노트북이나 태블릿을 카메라 바로 뒤에 둡니다.</li>
   <li>왼쪽 위 목록에서 내 대본을 고릅니다.</li>
@@ -192,7 +237,7 @@ dd { margin: 4px 0 0; color: var(--ink); }
   <li>주황 상자 <b>생략 가능</b>이 붙은 대사는 시간이 모자라면 건너뜁니다.</li>
 </ul>
 
-<h2 id="faq">4. 자주 묻는 질문</h2>
+<h2 id="faq"><span class="n">4.</span> 자주 묻는 질문</h2>
 <dl>
   <dt>폰이나 태블릿에서도 쓰고 싶어요.</dt>
   <dd>만든 <code>.prompter.json</code> 파일을 그 기기로 보냅니다(카카오톡 나에게 보내기, 메일 등). 그 기기에서 프롬프터를 열고 <a href="#load">2. 프롬프터에 불러오기</a>를 한 번 더 합니다. 기기마다 따로 불러와야 합니다.</dd>
@@ -210,6 +255,7 @@ dd { margin: 4px 0 0; color: var(--ink); }
   <dd>아니요. 불러온 대본은 지금 쓰는 기기의 브라우저에만 저장됩니다. 프롬프터 사이트에는 아무것도 올라가지 않습니다.</dd>
 </dl>
 </main>
+<footer class="foot"><span>CPX 프롬프터</span><a href="./">프롬프터 열기</a><a href="https://github.com/ChangwooLim/cpx-prompter" target="_blank" rel="noopener">GitHub</a></footer>
 <script>
 async function copyText(text) {
   try { await navigator.clipboard.writeText(text); return; } catch {}

@@ -1,0 +1,43 @@
+/* Hallmark · tokens · CPX 프롬프터
+ * Two surfaces share one ink family: a warm black stage for reading behind the camera,
+ * and printed-handout paper for the guide and the load sheet. One accent: on-air red.
+ */
+:root {
+  /* paper: guide, load sheet */
+  --color-paper:    oklch(97% 0.012 85);
+  --color-paper-2:  oklch(93.5% 0.016 85);
+  --color-field:    oklch(99% 0.006 85);
+  --color-rule:     oklch(84% 0.014 80);
+  --color-ink:      oklch(23% 0.014 60);
+  --color-ink-2:    oklch(44% 0.014 60);
+  --color-pencil:   oklch(50% 0.17 29);
+  --color-ok:       oklch(47% 0.11 150);
+
+  /* stage: prompter */
+  --color-stage:      oklch(16% 0.008 60);
+  --color-stage-2:    oklch(20.5% 0.010 60);
+  --color-stage-3:    oklch(26% 0.012 60);
+  --color-stage-rule: oklch(33% 0.012 60);
+  --color-cream:      oklch(94% 0.016 85);
+  --color-cream-2:    oklch(86% 0.022 85);
+  --color-sand:       oklch(81% 0.065 72);
+  --color-smoke:      oklch(69% 0.012 80);
+  --color-tally:      oklch(66% 0.19 29);
+  --color-amber:      oklch(77% 0.14 65);
+  --color-band:       oklch(94% 0.016 85 / 0.065);
+  --color-band-edge:  oklch(94% 0.016 85 / 0.2);
+  --color-scrim:      oklch(10% 0.01 60 / 0.8);
+
+  --font-sans:  "Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
+  --font-serif: "Hahmlet", "AppleMyungjo", "Noto Serif KR", serif;
+  --font-mono:  ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --space-3xs: 0.25rem; --space-2xs: 0.5rem; --space-xs: 0.75rem;
+  --space-sm: 1rem;     --space-md: 1.5rem;  --space-lg: 2rem;
+  --space-xl: 3rem;     --space-2xl: 4.5rem;
+
+  --radius: 3px;
+  --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --dur-short: 160ms;
+  --dur-fade: 350ms;
+}
